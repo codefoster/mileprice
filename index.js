@@ -13,12 +13,14 @@ var opts = {
     rows: 50,
     year: '2010',
     make: 'toyota',
-    model: 'corolla'
+    model: 'corolla',
+    priceRange: '2000-7000'
 };
 
 listingsApi.search(opts, (err, data) => {
     let listings = data.listings
         .map(l => ({
+            id: l.id,
             make: l.build.make,
             model: l.build.model,
             trim: l.build.trim,
@@ -27,7 +29,7 @@ listingsApi.search(opts, (err, data) => {
             transmission: l.build.transmission,
             miles: l.miles,
             price: l.price,
-            mileprice: l.price / l.miles,
+            mileprice: l.miles * l.price,
             url: l.vdp_url
         }))
         .filter(l => l.mileprice)
