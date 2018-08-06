@@ -1,11 +1,12 @@
 var MarketcheckCarsApi = require('marketcheck_cars_api');
+require('dotenv').config();
 
 var listingsApi = new MarketcheckCarsApi.ListingsApi()
 
 let seattle = { latitude: 47.6, longitude: -122.34 };
 
 var opts = {
-    apiKey: "HjwCMCG3Thrsqyf2U0i0n28OunLh4Sd4",
+    apiKey: process.env.MARKETCHECK_API_KEY,
     start: 1,
     latitude: seattle.latitude,
     longitude: seattle.longitude,
