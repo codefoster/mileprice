@@ -12,9 +12,10 @@ var opts = {
     longitude: seattle.longitude,
     radius: 200,
     rows: 50,
-    year: '2010',
+    year: '2007,2008,2009',
+    bodyType: 'sedan',
     make: 'toyota',
-    model: 'corolla',
+    model: 'yaris',
     priceRange: '2000-7000'
 };
 
@@ -25,6 +26,7 @@ listingsApi.search(opts, (err, data) => {
             make: l.build.make,
             model: l.build.model,
             trim: l.build.trim,
+            body: l.build.body_type,
             exteriorColor: l.exterior_color,
             interiorColor: l.interior_color,
             transmission: l.build.transmission,
